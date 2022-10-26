@@ -115,7 +115,7 @@ const Register = () => {
               </div>
             </div>
           </div>
-          <Button variant="primary" type="submit" disabled={!accepted}>
+          <Button variant="primary" type="submit" disabled={!accepted} className="w-25 mt-2">
             Register
           </Button>
         </Form.Group>

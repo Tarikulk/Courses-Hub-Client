@@ -94,16 +94,16 @@ const Login = () => {
             <Button 
               onClick={GoogleSignIn}
               variant="primary"
-              className="me-3 rounded d-flex align-items-center"
+              className="me-3 rounded d-flex align-items-center w-50 mt-2"
             >
-              Login With <FaGoogle className="ms-2"></FaGoogle>
+              Login With <FaGoogle className="ms-2 fs-5"></FaGoogle>
             </Button>
             <Button
               onClick={githubSignIn}
               variant="primary"
-              className="rounded d-flex align-items-center"
+              className="rounded d-flex align-items-center w-50 mt-2"
             >
-              Login With <FaGithub className="ms-2"></FaGithub>
+              Login With <FaGithub className="ms-2 fs-5"></FaGithub>
             </Button>
           </ButtonGroup>
         </Form.Group>
@@ -135,7 +135,7 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <Button variant="primary" type="submit" disabled={!accepted}>
+          <Button variant="primary" type="submit" disabled={!accepted} className="w-25 mt-2">
             Sign In
           </Button>
         </Form.Group>

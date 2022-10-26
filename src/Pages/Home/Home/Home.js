@@ -6,7 +6,7 @@ import './Home.css'
 const Home = () => {
     const courses = useLoaderData()
     return (
-        <div>
+        <div className='home-container'>
             {
                 courses.map(course => <Course
                 key={course.id}

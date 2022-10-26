@@ -36,7 +36,7 @@ const Header = () => {
                  user?.uid ?
                 <>
                  <Button variant="link" onClick={handleLogOut} className="ms-4">Log Out</Button>
-                 <FaUserCircle className='text-white ms-4 fs-4' title={user.displayName}></FaUserCircle>
+                 <img src={user?.photoURL} className='text-white ms-4 fs-4' title={user.displayName}  alt="" /> 
                 </>
                  :
                  <Link to='/login'>Login</Link>

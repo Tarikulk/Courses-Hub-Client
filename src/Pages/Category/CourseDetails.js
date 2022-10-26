@@ -26,7 +26,7 @@ const CourseDetails = ({course}) => {
       </Card.Header>
       
       <Card.Body>
-         <img src={author.img} className="w-50" alt="" />
+         <img src={author.img} className="w-50 rounded" alt="" />
         <Card.Text>
            {details}
         </Card.Text>
