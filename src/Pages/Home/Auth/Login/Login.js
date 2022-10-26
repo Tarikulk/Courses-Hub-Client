@@ -5,11 +5,14 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../Context/AuthProvider";
 
 const Login = () => {
   const { loginUser, userPasswordReset, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/ "
 
   const [userEmail, setUserEmail] = useState("");
   const [accepted, setAccepted] = useState(false);
@@ -27,6 +30,7 @@ const Login = () => {
         console.log(user);
         setError("");
         form.reset();
+        navigate(from, {replace: true});
       })
       .catch((error) => setError(error.message));
   };

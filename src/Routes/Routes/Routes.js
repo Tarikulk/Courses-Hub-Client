@@ -7,6 +7,7 @@ import Register from "../../Pages/Home/Auth/Register/Register";
 import Home from "../../Pages/Home/Home/Home";
 import PremiumCourse from "../../Pages/Premium/PremiumCourse";
 import Blog from "../../Pages/Shared/Blog/Blog";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/checkout/:id",
-                element:<Checkout></Checkout>,
+                element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             {

@@ -1,16 +1,30 @@
 import React from 'react';
+import { useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { FaChessKing, FaDollarSign, FaEye } from 'react-icons/fa';
+import { FaChessKing, FaDollarSign, FaEye, FaFileDownload } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import {useReactToPrint} from 'react-to-print'
 
 const CourseDetails = ({course}) => {
     const {rating, title, author, details, category_id} = course;
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: "emp-data",
+        onAfterPrint: () => alert("Print success")
+    })
 
     return (
         <div className='mt-5'>
-           <Card className="text-center">
-      <Card.Header>{title}</Card.Header>
+            <div ref={componentRef} style={{width:"100%", height: window.innerHeight}}>
+ 
+      <Card className="text-center">
+      <Card.Header className='d-flex align-items-center justify-content-between'>
+      {title}
+      <FaFileDownload onClick={handlePrint}></FaFileDownload>
+      </Card.Header>
+      
       <Card.Body>
          <img src={author.img} className="w-50" alt="" />
         <Card.Text>
@@ -35,6 +49,7 @@ const CourseDetails = ({course}) => {
        </div>
         </Card.Footer>
     </Card> 
+        </div>
         </div>
     );
 };
