@@ -33,7 +33,7 @@ const {loginUser, userPasswordReset} = useContext(AuthContext)
     const handleForgetPassword = () =>{
       userPasswordReset(userEmail)
       .then(() =>{})
-      .catch(error => console.log(error.message))
+      .catch(error => setError(error.message))
     }
 
     const handleChecked = (event) =>{

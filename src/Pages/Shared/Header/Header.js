@@ -7,12 +7,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import './Header.css'
-import {FaUserCircle} from "react-icons/fa"
+import {FaMoon, FaSun, FaUserCircle} from "react-icons/fa"
+import { useState } from 'react';
 
 const Header = () => {
     const {user, userLogOut} = useContext(AuthContext);
-    console.log(user)
-
+    const [show, setShow] = useState(true);
+    
     const handleLogOut = () =>{
         userLogOut()
         .then(() =>{})
@@ -38,6 +39,15 @@ const Header = () => {
                  :
                  <Link to='/login'>Login</Link>
              }
+             
+             <span onClick={() => setShow(!show)}>
+             {
+                show ? 
+                <FaMoon className='text-white ms-5 fs-4'></FaMoon>
+                :
+                <FaSun className='text-white ms-5 fs-4'></FaSun>
+             }
+             </span>
              </div>
           </Nav>
         </Container>
