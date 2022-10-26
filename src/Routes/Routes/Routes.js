@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Category from "../../Pages/Category/Category";
-import Courses from "../../Pages/Courses/Courses";
+import Checkout from "../../Pages/Checkout/Checkout";
 import Login from "../../Pages/Home/Auth/Login/Login";
 import Register from "../../Pages/Home/Auth/Register/Register";
 import Home from "../../Pages/Home/Home/Home";
+import PremiumCourse from "../../Pages/Premium/PremiumCourse";
 import Blog from "../../Pages/Shared/Blog/Blog";
 
 export const router = createBrowserRouter([
@@ -21,6 +22,16 @@ export const router = createBrowserRouter([
                 path:"/category/:id",
                 element:<Category></Category>, 
                 loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+            },
+            {
+                path:"/checkout/:id",
+                element:<Checkout></Checkout>,
+                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+            },
+            {
+                path:"/premium/:id",
+                element:<PremiumCourse></PremiumCourse>,
+                loader: ({params}) => fetch(`http://localhost:5000/premium/${params.id}`)
             },
             {
                 path:"/login",

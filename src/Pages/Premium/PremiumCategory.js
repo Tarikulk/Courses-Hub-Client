@@ -1,26 +1,18 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
+import React from 'react'; 
 import Card from 'react-bootstrap/Card';
-import { FaChessKing, FaDollarSign, FaEye } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaDollarSign, FaEye } from 'react-icons/fa';
 
-const CourseDetails = ({course}) => {
-    const {rating, title, author, details, category_id} = course;
-
+const PremiumCategory = ({premium}) => {
+    const {rating, title, author, details} = premium;
     return (
-        <div className='mt-5'>
-           <Card className="text-center">
+        <div className='m-5'>
+        <Card className="text-center">
       <Card.Header>{title}</Card.Header>
       <Card.Body>
          <img src={author.img} className="w-50" alt="" />
         <Card.Text>
            {details}
-        </Card.Text>
-        <div className='d-flex justify-content-center'>
-        <Link to={`/checkout/${category_id}`}>
-        <Button variant="primary" className='d-flex align-items-center'>Access Premium <FaChessKing className='ms-2'></FaChessKing></Button>
-        </Link>
-        </div>
+        </Card.Text> 
       </Card.Body>
       <Card.Footer className="text-muted">
        <div className='d-flex align-items-center justify-content-between'>
@@ -39,4 +31,4 @@ const CourseDetails = ({course}) => {
     );
 };
 
-export default CourseDetails;
+export default PremiumCategory;
