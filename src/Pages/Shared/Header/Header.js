@@ -9,6 +9,7 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import './Header.css'
 import {FaMoon, FaSun, FaUserCircle} from "react-icons/fa"
 import { useState } from 'react';
+import logo from "../../../assets/logo.png"
 
 const Header = () => {
     const {user, userLogOut} = useContext(AuthContext);
@@ -24,14 +25,15 @@ const Header = () => {
         <div>
             <Navbar bg="dark" variant="dark">
         <Container className='nav-container'>
-          <Link to="/">Courses-Hub</Link>
+          
+          <Link to="/"><img src={logo} style={{width:"30px", height:"30px"}} className="rounded-circle me-2" alt="" />Courses-Hub</Link>
           <Nav className="me-auto navbar">
              <Link to='/'>Home</Link>
              <Link to='/faq'>FAQ</Link>
              <Link to='/blog'>Blog</Link>
              <div className='btn-link'>
              {
-                 user?.email ?
+                 user?.uid ?
                 <>
                  <Button variant="link" onClick={handleLogOut} className="ms-4">Log Out</Button>
                  <FaUserCircle className='text-white ms-4 fs-4' title={user.displayName}></FaUserCircle>
