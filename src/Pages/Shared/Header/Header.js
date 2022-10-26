@@ -1,11 +1,24 @@
 import React from 'react';
+import { useContext } from 'react';
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 import './Header.css'
+import {FaUserCircle} from "react-icons/fa"
 
 const Header = () => {
+    const {user, userLogOut} = useContext(AuthContext);
+    console.log(user)
+
+    const handleLogOut = () =>{
+        userLogOut()
+        .then(() =>{})
+        .catch(error => console.log(error))
+    }
+
     return (
         <div>
             <Navbar bg="dark" variant="dark">
@@ -15,7 +28,17 @@ const Header = () => {
              <Link to='/'>Home</Link>
              <Link to='/faq'>FAQ</Link>
              <Link to='/blog'>Blog</Link>
-             <Link to='/login'>Login</Link>
+             <div className='btn-link'>
+             {
+                 user?.email ?
+                <>
+                 <Button variant="link" onClick={handleLogOut} className="ms-4">Log Out</Button>
+                 <FaUserCircle className='text-white ms-4 fs-4' title={user.displayName}></FaUserCircle>
+                </>
+                 :
+                 <Link to='/login'>Login</Link>
+             }
+             </div>
           </Nav>
         </Container>
       </Navbar> 
