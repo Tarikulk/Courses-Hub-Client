@@ -3,14 +3,18 @@ import { useState } from "react";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../Context/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Register = () => {
   const { createUser, updateUserProfile, verifyUserEmail } =
-    useContext(AuthContext);
+  useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,7 +27,9 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setError("");
+        toast.success("You've Register Successfully!", {autoClose:3000})
         console.log(user);
+        navigate("/")
         handleUpdateUserProfile(photo, name);
         handleEmailVerification();
         form.reset();
@@ -47,7 +53,9 @@ const Register = () => {
 
   const handleEmailVerification = () => {
     verifyUserEmail()
-      .then(() => {})
+      .then(() => {
+        toast.success("Check your email for verification link", {autoClose:3000})
+      })
       .catch((error) => setError(error.message));
   };
 
@@ -120,6 +128,7 @@ const Register = () => {
           </Button>
         </Form.Group>
       </Form>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
