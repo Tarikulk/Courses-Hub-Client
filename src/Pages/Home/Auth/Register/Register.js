@@ -52,7 +52,7 @@ const Register = () => {
   };
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 shadow-lg mt-5 shadow-lg pt-2 px-5 pb-4">
       <p className="text-danger text-center my-5">
         <small>{error}</small>
       </p>

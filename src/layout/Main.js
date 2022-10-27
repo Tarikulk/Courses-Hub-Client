@@ -8,16 +8,16 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Container>
+            {/* <Container> */}
                 <Row>
-                    <Col lg="2">
+                    <Col lg="3" className='bg-primary'>
                      <LeftSideNav></LeftSideNav>
                     </Col>
-                    <Col lg="10">
+                    <Col lg="9">
                     <Outlet></Outlet>
                     </Col>
                 </Row>
-            </Container>
+            {/* </Container> */}
         </div>
     );
 };

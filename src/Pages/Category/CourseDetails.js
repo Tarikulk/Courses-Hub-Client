@@ -16,8 +16,8 @@ const CourseDetails = ({course}) => {
     })
 
     return (
-        <div className='mt-5'>
-            <div ref={componentRef} style={{width:"100%", height: window.innerHeight}}>
+        <div className='my-5 shadow-lg' data-aos="zoom-in-right">
+            <div ref={componentRef} style={{width:"100%"}}>
  
       <Card className="text-center">
       <Card.Header className='d-flex align-items-center justify-content-between'>

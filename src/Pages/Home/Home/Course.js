@@ -8,8 +8,8 @@ const Course = ({ course }) => {
   const { img, name, id } = course;
   console.log(course);
   return (
-    <div className="mt-5">
-      <Card style={{ width: "18rem", height:"20rem" }}>
+    <div className="mt-5 shadow-lg" data-aos="zoom-in-right">
+      <Card style={{ height:"20rem" }}>
         <Card.Img variant="top" src={img} />
         <Card.Body>
           <Card.Title>Name: {name}</Card.Title>

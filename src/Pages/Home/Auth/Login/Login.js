@@ -7,12 +7,14 @@ import Form from "react-bootstrap/Form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../Context/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const { loginUser, userPasswordReset, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/ "
+  const from = location.state?.from?.pathname || "/"
 
   const [userEmail, setUserEmail] = useState("");
   const [accepted, setAccepted] = useState(false);
@@ -23,21 +25,23 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    handleForgetPassword(email);
     loginUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        setError("");
-        form.reset();
-        navigate(from, {replace: true});
+    .then((result) => {
+      const user = result.user;
+      console.log(user);
+      setError("");
+      toast.success("Password Reset Link Have Been Sent To Your Email",{autoClose: 3000})
+      form.reset();
+      navigate(from, {replace: true});
       })
       .catch((error) => setError(error.message));
   };
 
   const handleForgetPassword = () => {
     userPasswordReset(userEmail)
-      .then(() => {})
+      .then(() => {
+        toast.success("Password Reset Link Have Been Sent To Your Email",{autoClose: 3000})
+      })
       .catch((error) => setError(error.message));
   };
 
@@ -49,7 +53,9 @@ const Login = () => {
      loginWithGoogle()
      .then(result => {
         const user = result.user;
+        toast.success("You've Login Successfully", {autoClose:3000})
         console.log(user)
+        navigate(from, {replace: true});
      })
      .catch(error => setError(error.message))
   };
@@ -58,13 +64,15 @@ const Login = () => {
     loginWithGithub()
     .then(result => {
         const user = result.user;
+        toast.success("You've Login Successfully", {autoClose:3000})
         console.log(user);
+        navigate(from, {replace: true});
     })
     .catch(error => setError(error));
   };
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 shadow-lg pt-2 px-5 pb-4">
       <p className="text-danger text center my-5">
         <small>{error}</small>
       </p>
@@ -112,9 +120,9 @@ const Login = () => {
           controlId="formBasicCheckbox"
         >
           <Link to="/register">
-            <p>New To The Website ? Register Please</p>
+            <p className="mb-1">New To The Website ? Register Please</p>
           </Link>
-          <p>
+          <p className="mb-0">
             Forget Password ?
             <Button variant="link" onClick={handleForgetPassword}>
               Please Reset
@@ -140,6 +148,7 @@ const Login = () => {
           </Button>
         </Form.Group>
       </Form>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import './checkoutDetails.css'
 const CheckoutDetails = ({details}) => {
     const {rating, total_view, total_tutorial, author, category_id} = details; 
     return (
-        <div className='mt-5'>
+        <div className='mt-5' data-aos="zoom-in-right">
            <div className="row">
     <div className="col-md-4 col-sm-6">
         <div className="pricing-table-3 basic">
