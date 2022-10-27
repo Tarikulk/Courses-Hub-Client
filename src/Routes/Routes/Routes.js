@@ -20,22 +20,22 @@ export const router = createBrowserRouter([
             {
                 path:"/",
                 element:<Home></Home>,
-                loader: () => fetch('http://localhost:5000/course-categories')
+                loader: () => fetch('https://course-hub-server-tarikulk.vercel.app/course-categories')
             },
             {
                 path:"/category/:id",
                 element:<Category></Category>, 
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) => fetch(`https://course-hub-server-tarikulk.vercel.app/category/${params.id}`)
             },
             {
                 path:"/checkout/:id",
                 element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) => fetch(`https://course-hub-server-tarikulk.vercel.app/category/${params.id}`)
             },
             {
                 path:"/premium/:id",
                 element:<PremiumCourse></PremiumCourse>,
-                loader: ({params}) => fetch(`http://localhost:5000/premium/${params.id}`)
+                loader: ({params}) => fetch(`https://course-hub-server-tarikulk.vercel.app/premium/${params.id}`)
             },
             {
                 path:"/faq",
