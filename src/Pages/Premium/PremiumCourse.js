@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import PremiumCategory from './PremiumCategory';
-import "./PremiumCourse.css"
 
 const PremiumCourses = () => {
     const premiumCourses = useLoaderData();

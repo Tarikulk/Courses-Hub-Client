@@ -7,12 +7,15 @@ import Register from "../../Pages/Home/Auth/Register/Register";
 import Home from "../../Pages/Home/Home/Home";
 import PremiumCourse from "../../Pages/Premium/PremiumCourse";
 import Blog from "../../Pages/Shared/Blog/Blog";
+import ErrorPage from "../../Pages/Shared/Error404/ErrorPage";
+import FAQ from "../../Pages/Shared/FAQ/FAQ";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:"/",
@@ -33,6 +36,10 @@ export const router = createBrowserRouter([
                 path:"/premium/:id",
                 element:<PremiumCourse></PremiumCourse>,
                 loader: ({params}) => fetch(`http://localhost:5000/premium/${params.id}`)
+            },
+            {
+                path:"/faq",
+                element:<FAQ></FAQ>
             },
             {
                 path:"/login",

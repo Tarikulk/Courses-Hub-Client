@@ -28,7 +28,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-            <Link to='/'>Home</Link>
+            <Link to='/'>Courses</Link>
              <Link to='/faq'>FAQ</Link>
              <Link to='/blog'>Blog</Link>
             </Nav>
@@ -63,38 +63,4 @@ const Header = () => {
 export default Header;
 
 
-
-{/* <div> */}
-            // <Navbar bg="dark" variant="dark">
-    //     <Container className='nav-container shadow-lg'>
-          
-    //       <Link to="/"><img src={logo} style={{width:"30px", height:"30px"}} className="rounded-circle me-2" alt="" />Courses-Hub</Link>
-    //       <Nav className="me-auto navbar">
-    //          <Link to='/'>Home</Link>
-    //          <Link to='/faq'>FAQ</Link>
-    //          <Link to='/blog'>Blog</Link>
-    //          <div className='btn-link'>
-    //          {
-    //              user?.uid ?
-    //             <>
-    //              <Button variant="link" onClick={handleLogOut} className="ms-4">Log Out</Button>
-    //              <img src={user?.photoURL} className='text-white ms-4 fs-4 rounded-circle' style={{height:"30px"}}  title={user.displayName}  alt="" /> 
-    //             </>
-    //              :
-    //              <Link to='/login'>Login</Link>
-    //          }
-             
-    //          <span onClick={() => setShow(!show)}>
-    //          {
-    //             show ? 
-    //             <FaMoon className='text-white ms-5 fs-4'></FaMoon>
-    //             :
-    //             <FaSun className='text-white ms-5 fs-4'></FaSun>
-    //          }
-    //          </span>
-    //          </div>
-    //       </Nav>
-    //     </Container>
-    //   </Navbar> 
-      
-    //     </div>
+ 
