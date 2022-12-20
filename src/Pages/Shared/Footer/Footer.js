@@ -20,8 +20,7 @@ const Footer = () => {
                             <div className="footer-text">
                                 <p>Take your desired course. Best wishes from Course-Hub</p>
                             </div>
-                            <div className="footer-social-icon">
-                                <span>Follow us</span>
+                            <div className="footer-social-icon"> 
                                 <Link to="/"><i className="fab fa-facebook-f facebook-bg"></i></Link>
                                 <Link to="/"><i className="fab fa-twitter twitter-bg"></i></Link>
                                 <Link to="/"><i className="fab fa-google-plus-g google-bg"></i></Link>
