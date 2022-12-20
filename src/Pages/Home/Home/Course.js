@@ -6,6 +6,7 @@ import "./Course.css";
 
 const Course = ({ course }) => {
   const { img, name, id } = course;
+  console.log(id)
   console.log(course);
   return (
     <div className="mt-5 shadow-lg" data-aos="zoom-in-right">
