@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import './Header.css'
 import {FaMoon, FaSun} from "react-icons/fa"
@@ -14,10 +14,13 @@ import logo from "../../../assets/logo.png"
 const Header = () => {
     const {user, userLogOut} = useContext(AuthContext);
     const [show, setShow] = useState(true);
+    const navigate = useNavigate();
     
     const handleLogOut = () =>{
         userLogOut()
-        .then(() =>{})
+        .then(() =>{
+          navigate("/login")
+        })
         .catch(error => console.log(error))
     }
 
