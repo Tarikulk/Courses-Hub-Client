@@ -10,6 +10,7 @@ import './Header.css'
 import {FaMoon, FaSun} from "react-icons/fa"
 import { useState } from 'react';
 import logo from "../../../assets/logo.png"
+import { toast } from 'react-toastify';
 
 const Header = () => {
     const {user, userLogOut} = useContext(AuthContext);
@@ -20,8 +21,12 @@ const Header = () => {
         userLogOut()
         .then(() =>{
           navigate("/login")
+          toast.message("logout successful")
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          console.log(error)
+          toast.error(error.message)
+        })
     }
 
     return (
@@ -56,7 +61,7 @@ const Header = () => {
              </span>
              </div>
           </Navbar.Collapse>
-        </Container>
+        </Container> 
       </Navbar> 
     );
 };
